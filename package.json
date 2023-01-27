@@ -1,8 +1,8 @@
 {
-  "name": "react-native-new-template",
+  "name": "rn-starter",
   "version": "0.0.5",
   "description": "React Native Template",
-  "repository": "git@github.com:Esemesek/react-native-new-template.git",
-  "author": "Kacper Wiszczuk <kacperwiszczuk@gmail.com>",
+  "repository": "git@github.com:hritiksingh73/rn-starter.git",
+  "author": "Hritik Singh <hritik.singh@indianic.com>>",
   "license": "MIT"
 }
