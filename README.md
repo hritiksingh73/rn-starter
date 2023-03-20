@@ -7,7 +7,7 @@ An Opinionated react-native templated with commonly used libraries to kickstart 
 ### Usages
 
 ```
-npx react-native init MyApp --template https://github.com/hrithik73/rn-starter
+npx react-native init MyApp --template https://github.com/hritiksingh73/rn-starter
 ```
 
 Make sure to replace the `MyApp` with your App Name
