@@ -4,11 +4,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import { screenName } from '@src/constants/screen';
-import Login from '@src/screens/auth/Login';
-import SingUp from '@src/screens/auth/SignUp';
-import Home from '@src/screens/home/Home';
-import Query from '@src/screens/home/Query';
-import Setting from '@src/screens/home/Setting';
+import Login from '@src/screens/Login/Login';
+import SingUp from '@src/screens/SignUp/SignUp';
+import Home from '@src/screens/Home/Home';
+import Query from '@src/screens/Home/Query';
+import Setting from '@src/screens/Home/Setting';
 import { AuthStackType, RootStackType } from '@src/types/navigation';
 
 import { useTranslation } from 'react-i18next';
@@ -69,7 +69,7 @@ const HomeNavigator = () => {
 };
 
 const MainNavigator = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return <>{isLoggedIn ? <HomeNavigator /> : <AuthNavigator />}</>;
 };
 export default MainNavigator;
