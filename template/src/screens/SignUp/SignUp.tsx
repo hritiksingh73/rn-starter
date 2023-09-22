@@ -17,6 +17,7 @@ import Input from '@src/components/Input';
 import images from '@src/config/image';
 import useTheme from '@src/hooks/useTheme';
 import { AuthStackNavigatorProps } from '@src/types/navigation';
+import makeStyles from './style';
 
 const SignUp = () => {
   const theme = useTheme();
@@ -34,10 +35,16 @@ const SignUp = () => {
   };
 
   return (
+    //
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container}>
-      <Image source={theme.dark ? images.logo : images.logo_dark} />
+      <Image
+        source={images.appLogo}
+        style={styles.image}
+        resizeMode="contain"
+      />
+
       <Input
         name="name"
         control={control}
@@ -89,6 +96,7 @@ const SignUp = () => {
           },
         }}
       />
+
       <Button title="SignUp" onPress={handleSubmit(loginHandler)} />
       <View style={styles.signUpContainer}>
         <Text>Already have an account?</Text>
@@ -99,25 +107,5 @@ const SignUp = () => {
     </KeyboardAvoidingView>
   );
 };
-
-const makeStyles = (colors: any) =>
-  StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    heading: {
-      color: colors.text,
-    },
-    signUpContainer: {
-      flexDirection: 'row',
-      marginVertical: 15,
-      gap: 5,
-    },
-    signUpText: {
-      color: 'blue',
-    },
-  });
 
 export default SignUp;

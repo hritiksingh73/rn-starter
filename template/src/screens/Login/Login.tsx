@@ -2,6 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import {
+  Dimensions,
   Image,
   KeyboardAvoidingView,
   Platform,
@@ -17,6 +18,7 @@ import Input from '@src/components/Input';
 import images from '@src/config/image';
 import useTheme from '@src/hooks/useTheme';
 import { AuthStackNavigatorProps } from '@src/types/navigation';
+import makeStyles from './style';
 
 const Login = () => {
   const theme = useTheme();
@@ -36,8 +38,14 @@ const Login = () => {
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       style={styles.container}>
-      <Image source={theme.dark ? images.logo : images.logo_dark} />
+      <Image
+        source={images.appLogo}
+        style={styles.image}
+        resizeMode="contain"
+      />
+      <Text style={styles.welcomeText}>{'Welcome to your App'}</Text>
       <Input
+        style={{ marginTop: 20 }}
         autoCapitalize="none"
         name="email"
         control={control}
@@ -77,6 +85,7 @@ const Login = () => {
           },
         }}
       />
+      <Text style={styles.forgotPasstext}>{'Forgot Password ?'}</Text>
       <Button title="Login" onPress={handleSubmit(loginHandler)} />
       <View style={styles.signUpContainer}>
         <Text>Don't have an account?</Text>
@@ -87,25 +96,5 @@ const Login = () => {
     </KeyboardAvoidingView>
   );
 };
-
-const makeStyles = (colors: any) =>
-  StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    heading: {
-      color: colors.text,
-    },
-    signUpContainer: {
-      flexDirection: 'row',
-      marginVertical: 15,
-      gap: 10,
-    },
-    signUpText: {
-      color: 'blue',
-    },
-  });
 
 export default Login;
